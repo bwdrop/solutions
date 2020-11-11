@@ -24,14 +24,14 @@ def run_through_tree(i, lvl):
     (left, right) = childs(i, lvl)
     if (left, right) == (-1, -1):
         max_sum_tree[i] = triangle[i]
-        return triangle[i]
+        return
     if max_sum_tree[left] == 0:
         run_through_tree(left, lvl + 1)
     if max_sum_tree[right] == 0:
         run_through_tree(right, lvl + 1)
     if max_sum_tree[left] > 0 and max_sum_tree[right] > 0:
         max_sum_tree[i] = triangle[i] + max(max_sum_tree[left], max_sum_tree[right])
-        return max_sum_tree[i]
+        return
 
 run_through_tree(0, 1)
 print(max_sum_tree[0])
